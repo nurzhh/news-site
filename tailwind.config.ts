@@ -18,6 +18,7 @@ const config: Config = {
       colors: {
         main: "#172B4D",
         bg: "#F6F7F9",
+        gray: "rgba(255, 255, 255, 0.60)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -26,7 +27,7 @@ const config: Config = {
       },
       fontFamily: {
         badscript: ["var(--font-bad-script)"],
-        chapo: ["var(--font-chapo)"],
+        chaupo: ["var(--font-chaupo)"],
       },
     },
   },
