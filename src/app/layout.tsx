@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bad_Script, Chau_Philomene_One, Ubuntu } from "next/font/google";
 import "./styles/globals.css";
 import cn from "classnames";
+import Providers from "./provider/provider";
 
 const ubuntu = Ubuntu({
   subsets: ["latin", "cyrillic"],
@@ -33,7 +34,7 @@ export default function RootLayout({
       <body
         className={cn(ubuntu.className, badscript.variable, chaupo.variable)}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
