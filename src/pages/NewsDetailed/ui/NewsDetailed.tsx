@@ -1,7 +1,3 @@
 export default function NewsDetailedPage() {
-  return (
-    <section>
-      
-    </section>
-  )
+  return <section></section>;
 }

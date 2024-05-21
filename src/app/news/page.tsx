@@ -1,7 +1,11 @@
+import Layout from "@/widgets/Layout/Layout";
+
 export default function Home() {
   return (
-    <main className="container">
-      
-    </main>
+    <Layout>
+      <main className="container">
+        
+      </main>
+    </Layout>
   )
 }
