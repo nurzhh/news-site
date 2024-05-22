@@ -12,7 +12,7 @@ export const TabsNav = () => {
   return (
     <Card
       cardStyle="third"
-      className="flex py-1 px-1.5 items-center justify-between"
+      className="flex mb-4 py-1 px-1.5 items-center justify-between"
     >
       <Tabs>
         {tabsData.map(({ title, component }, index) => (

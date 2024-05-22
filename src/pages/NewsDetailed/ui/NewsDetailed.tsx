@@ -1,3 +1,3 @@
 export default function NewsDetailedPage() {
-  return <section></section>;
+  return <section className="mt-6"></section>;
 }
