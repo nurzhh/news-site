@@ -1,15 +1,15 @@
-import { Articles } from "@/shared/lib/types";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { News } from "@/shared/lib/types";
 
-export const allNews = createAsyncThunk(
-  "news/allNews",
+export const fetchAllNews = createAsyncThunk(
+  "news/fetchAllNews",
   async (_, { rejectWithValue }) => {
     try {
       const res = await axios.get(
         "https://newsapi.org/v2/everything?q=tesla&from=2024-04-22&sortBy=publishedAt&apiKey=fc62c44428db43f0a43ec3c505585046"
       );
-      return res.data;
+      return res.data as News;
     } catch (error) {
       console.log(error);
       return rejectWithValue(error);
@@ -17,20 +17,14 @@ export const allNews = createAsyncThunk(
   }
 );
 
-export type News = {
-  status: string;
-  totalResults: number;
-  articles: Articles[];
-};
-
-interface CourseState {
-  news: News[] | null;
+interface NewsState {
+  news: News | null;
   loading: boolean;
-  error: null | any;
+  error: null | string;
 }
 
-const initialState: CourseState = {
-  news: [],
+const initialState: NewsState = {
+  news: null,
   loading: false,
   error: null,
 };
@@ -41,15 +35,21 @@ const newsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(allNews.fulfilled, (state, action) => {
+      .addCase(fetchAllNews.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchAllNews.fulfilled, (state, action) => {
         state.loading = false;
         state.news = action.payload;
         state.error = null;
       })
-      .addCase(allNews.rejected, (state, action) => {
+      .addCase(fetchAllNews.rejected, (state, action) => {
         state.loading = false;
         state.news = null;
-        state.error = action.payload;
+        state.error = action.payload as string;
       });
   },
 });
+
+export default newsSlice.reducer;

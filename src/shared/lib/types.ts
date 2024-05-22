@@ -1,8 +1,10 @@
-export type Articles = {
-  sources: {
-    id: string | any;
-    name: string;
-  };
+export interface Source {
+  id: string;
+  name: string;
+}
+
+export interface Articles {
+  source: Source;
   author: string;
   title: string;
   description: string;
@@ -10,7 +12,13 @@ export type Articles = {
   urlToImage: string;
   publishedAt: string;
   content: string;
-};
+}
+
+export interface News {
+  status?: string;
+  totalResults?: number;
+  articles: Articles[];
+}
 
 export interface CategoryI {
   tag:

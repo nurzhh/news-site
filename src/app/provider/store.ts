@@ -1,7 +1,10 @@
+import newsSlice from "@/shared/model/news/newsSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    news: newsSlice
+  },
   devTools: true,
 });
 
