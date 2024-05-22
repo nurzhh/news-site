@@ -10,7 +10,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={cn(`card__${cardStyle}`, className)}
+      className={cn(`card__${cardStyle}`, className, "bg-cover bg-center")}
       style={{
         backgroundImage: `url(${imageCard})`,
       }}

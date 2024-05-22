@@ -16,7 +16,7 @@ export default function NewsCategory({ tag, className }: CategoryI) {
   return (
     <div
       className={cn(
-        `py-[5px] text-2sm leading-[14px] px-2 ${tagColors[tag]}`,
+        `py-[5px] w-fit rounded-3xl text-2sm leading-[14px] px-2 ${tagColors[tag]}`,
         className
       )}
     >

@@ -4,5 +4,5 @@ export interface CardProps {
   className?: string;
   children: ReactNode | string;
   imageCard?: string;
-  cardStyle?: "first" | "second" | "third";
+  cardStyle?: "first" | "second" | "third" | "withImage";
 }

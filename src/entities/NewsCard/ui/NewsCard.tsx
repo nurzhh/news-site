@@ -13,7 +13,11 @@ export default function NewsCard({
   publishedAt,
 }: NewsCardProps) {
   return (
-    <Card className="flex flex-col" imageCard={urlToImage}>
+    <Card
+      className="flex flex-col p-6 mb-6"
+      cardStyle="withImage"
+      imageCard={urlToImage}
+    >
       <NewsCategory tag="Ақпарат" />
       <h1 className="text-xl font-bold leading-10 text-white">{title}</h1>
       <p className="text-sm leading-6 text-white">{publishedAt}</p>

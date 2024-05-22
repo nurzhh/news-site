@@ -17,7 +17,7 @@ export default function MainPage() {
 
   return (
     <section className="pt-6 container">
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid gap-6">
         {news && <NewsList news={news} amount={12} />}
       </div>
     </section>
