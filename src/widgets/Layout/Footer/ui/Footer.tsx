@@ -1,18 +1,42 @@
-import { footerData } from "@/shared/lib/data";
+"use client";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/reduxHooks";
+import { fetchAllNews } from "@/shared/model/news/newsSlice";
 import Link from "next/link";
 
 export default function Footer() {
+  const dispatch = useAppDispatch();
+  const { news } = useAppSelector((state) => state.news);
+
+  useEffect(() => {
+    dispatch(fetchAllNews());
+  }, [dispatch]);
+
+  const getUniqueAuthors = (articles: any) => {
+    const authorsSet = new Set();
+    articles.forEach((article: any) => {
+      if (article.author && !article.author.includes(".com")) {
+        authorsSet.add(article.author);
+      }
+    });
+    return Array.from(authorsSet);
+  };
+
+  const uniqueAuthors = news?.articles
+    ? getUniqueAuthors(news.articles).slice(0, 10)
+    : [];
+
   return (
     <footer className="py-8 bg-main">
       <div className="text-center">
         <li className="container flex items-center gap justify-center">
-          {footerData.map((data, index) => (
+          {uniqueAuthors.map((author, index) => (
             <Link
-              href={data.path}
+              href={""}
               className="py-2 px-4 text-white leading-6 text-sm"
               key={index}
             >
-              {data.title}
+              {author}
             </Link>
           ))}
         </li>
