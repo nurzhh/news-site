@@ -7,7 +7,7 @@ export const fetchAllNews = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const res = await axios.get(
-        "https://newsapi.org/v2/everything?q=tesla&from=2024-04-22&sortBy=publishedAt&apiKey=fc62c44428db43f0a43ec3c505585046"
+        "https://newsapi.org/v2/everything?q=tesla&from=2024-04-25&sortBy=publishedAt&apiKey=fc62c44428db43f0a43ec3c505585046"
       );
       return res.data as News;
     } catch (error) {

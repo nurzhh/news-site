@@ -12,8 +12,9 @@ export default function MainPage() {
     dispatch(fetchAllNews());
   }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading)
+    return <p className="text-2xl font-bold text-center py-6">Loading...</p>;
+  if (error) return <p className="text-2xl font-bold text-center py-6">Error: {error}</p>;
 
   return (
     <section className="pt-6 container">

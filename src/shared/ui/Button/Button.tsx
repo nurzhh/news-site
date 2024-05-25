@@ -3,7 +3,7 @@ import cn from "classnames";
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  children?: ReactNode;
+  children?: ReactNode | any;
 }
 
 const Button = (props: IButton) => {
